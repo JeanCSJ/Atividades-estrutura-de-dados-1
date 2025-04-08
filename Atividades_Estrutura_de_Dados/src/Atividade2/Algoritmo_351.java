@@ -1,16 +1,16 @@
-package Atividade2;
+package atividade2;
 
 import java.util.Scanner;
 
 public class Algoritmo_351 {
 
 	public static void main(String[] args) {
-		int L, num;
+		int num;
 		String nomes[] = new String[5];
 		Scanner scint = new Scanner(System.in);
 		Scanner scstr = new Scanner(System.in);
 		
-		for(L = 0; L <= 4; L++) {
+		for(int L = 0; L <= 4; L++) {
 			System.out.print("\nnome " + (L+1) + ": ");
 			nomes[L] = scstr.nextLine();
 		}
