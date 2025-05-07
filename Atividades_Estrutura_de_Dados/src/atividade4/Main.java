@@ -26,9 +26,6 @@ public class Main {
 		while(pilha.empty() == false){
 			System.out.print(pilha.pop());
 		}
-		
-		
 		sc.close();
 	}
-
 }
