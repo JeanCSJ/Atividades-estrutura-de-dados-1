@@ -35,9 +35,7 @@ class ListaDe {
             atual = atual.anterior;
         }
         System.out.println();
-    }
-
-    
+    }    
     public void inserirNaPosicao(int valor, int posicao) {
         No novoNo = new No(valor);
 
@@ -71,5 +69,60 @@ class ListaDe {
             atual.anterior = novoNo;
         }
     }
+    public void remover(int posicao) {
+        if (posicao < 0) return;
 
+        No atual = inicio;
+        int n = 0;
+
+        while (atual != null && n < posicao) {
+            atual = atual.proximo;
+            n++;
+        }
+
+        if (atual == null) return;
+
+        if (atual.anterior != null) {
+            atual.anterior.proximo = atual.proximo;
+        } else {
+            inicio = atual.proximo;
+        }
+
+        if (atual.proximo != null) {
+            atual.proximo.anterior = atual.anterior;
+        } else {
+            fim = atual.anterior;
+        }
+    }
+    public void removerPrimos() {
+        No atual = inicio;
+        int posicao = 0;
+
+        while (atual != null) {
+            int valor = atual.valor;
+            boolean primo = false;
+            No proximo = atual.proximo;
+
+            if (valor > 1) {
+                if (valor == 2) {
+                    primo = true;
+                } else if (valor % 2 != 0) {
+                    for (int i = 3; i <= Math.sqrt(valor); i += 2) {
+                        if (valor % i == 0) {
+                        	primo = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (primo) {
+                remover(posicao);
+                atual = proximo;
+            } else {
+                atual = proximo;
+                posicao++;
+            }
+        }
+    }
 }

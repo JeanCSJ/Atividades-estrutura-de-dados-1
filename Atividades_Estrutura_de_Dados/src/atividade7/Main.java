@@ -8,5 +8,7 @@ public class Main {
 		Metodos.inserirLista();
 		Metodos.lista.exibir();
 		Metodos.lista.exibirReverso();
+		Metodos.lista.removerPrimos();
+		Metodos.lista.exibir();
 	}
 }
